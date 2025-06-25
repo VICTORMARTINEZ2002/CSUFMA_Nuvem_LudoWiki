@@ -1,0 +1,240 @@
+[
+	{ "model": "setup.genero", "pk": 1, "fields": { "nome": "Estratégia" }},
+	{ "model": "setup.genero", "pk": 2, "fields": { "nome": "Aventura" }},
+	{ "model": "setup.genero", "pk": 3, "fields": { "nome": "Família" }},
+	{ "model": "setup.genero", "pk": 4, "fields": { "nome": "Party Game" }},
+	{ "model": "setup.genero", "pk": 5, "fields": { "nome": "RPG" }},
+	{ "model": "setup.genero", "pk": 6, "fields": { "nome": "Cooperativo" }},
+	{ "model": "setup.genero", "pk": 7, "fields": { "nome": "Educativo" }},
+	{ "model": "setup.genero", "pk": 8, "fields": { "nome": "Cartas" }},
+	{ "model": "setup.genero", "pk": 9, "fields": { "nome": "Clássico" }},
+
+	{ "model": "setup.jogo", "pk": 1, "fields": {
+		"nome": "Coup",
+		"descricao": "Um jogo de blefe e dedução social, onde jogadores lutam pelo controle político através de influência e engano.",
+		"img": "/images/coup.jpg",
+		"max_players": 6,
+		"duracao": "00:15:00",
+		"manual": "https://s3.aws.com/manuals/coup.pdf",
+		"ano": 2012,
+		"genero": 1
+	}},
+	{ "model": "setup.jogo", "pk": 2, "fields": {
+		"nome": "WAR",
+		"descricao": "Clássico jogo de conquista mundial onde o objetivo é dominar territórios usando estratégia militar.",
+		"img": "/images/war.jpg",
+		"max_players": 6,
+		"duracao": "02:00:00",
+		"manual": "https://s3.aws.com/manuals/war.pdf",
+		"ano": 1972,
+		"genero": 1
+	}},
+	{ "model": "setup.jogo", "pk": 3, "fields": {
+		"nome": "Catan",
+		"descricao": "Um jogo de colonização de ilhas com comércio e estratégia.",
+		"img": "/images/catan.jpg",
+		"max_players": 4,
+		"duracao": "01:00:00",
+		"manual": "https://s3.aws.com/manuals/catan.pdf",
+		"ano": 1995,
+		"genero": 1
+	}},
+	{ "model": "setup.jogo", "pk": 4, "fields": {
+		"nome": "Jenga",
+		"descricao": "Remova blocos de uma torre sem deixá-la cair. Simples e tenso!",
+		"img": "/images/jenga.jpg",
+		"max_players": 8,
+		"duracao": "00:20:00",
+		"manual": "https://s3.aws.com/manuals/jenga.pdf",
+		"ano": 1983,
+		"genero": 3
+	}},
+	{ "model": "setup.jogo", "pk": 5, "fields": {
+		"nome": "Detetive",
+		"descricao": "Descubra quem cometeu o crime usando lógica e eliminação.",
+		"img": "/images/detetive.jpg",
+		"max_players": 6,
+		"duracao": "01:00:00",
+		"manual": "https://s3.aws.com/manuals/detetive.pdf",
+		"ano": 1975,
+		"genero": 9
+	}},
+	{ "model": "setup.jogo", "pk": 6, "fields": {
+		"nome": "Uno",
+		"descricao": "Clássico jogo de cartas onde o objetivo é se livrar de todas as cartas.",
+		"img": "/images/uno.jpg",
+		"max_players": 10,
+		"duracao": "00:20:00",
+		"manual": "https://s3.aws.com/manuals/uno.pdf",
+		"ano": 1992,
+		"genero": 8
+	}},
+	{ "model": "setup.jogo", "pk": 7, "fields": {
+		"nome": "Zombicide",
+		"descricao": "Cooperativo com miniaturas onde jogadores enfrentam hordas de zumbis.",
+		"img": "/images/zombicide.jpg",
+		"max_players": 6,
+		"duracao": "01:30:00",
+		"manual": "https://s3.aws.com/manuals/zombicide.pdf",
+		"ano": 2012,
+		"genero": 6
+	}},
+	{ "model": "setup.jogo", "pk": 8, "fields": {
+		"nome": "Ticket to Ride",
+		"descricao": "Construa rotas de trem conectando cidades em um mapa estratégico.",
+		"img": "/images/ticket.jpg",
+		"max_players": 5,
+		"duracao": "01:00:00",
+		"manual": "https://s3.aws.com/manuals/ticket.pdf",
+		"ano": 2004,
+		"genero": 1
+	}},
+	{ "model": "setup.jogo", "pk": 9, "fields": {
+		"nome": "Dixit",
+		"descricao": "Jogo de associação de imagens e criatividade com ilustrações oníricas.",
+		"img": "/images/dixit.jpg",
+		"max_players": 6,
+		"duracao": "00:30:00",
+		"manual": "https://s3.aws.com/manuals/dixit.pdf",
+		"ano": 2008,
+		"genero": 2
+	}},
+	{ "model": "setup.jogo", "pk": 10, "fields": {
+		"nome": "Dobble",
+		"descricao": "Jogo rápido de reconhecimento visual e reflexos com cartas redondas.",
+		"img": "/images/dobble.jpg",
+		"max_players": 8,
+		"duracao": "00:15:00",
+		"manual": "https://s3.aws.com/manuals/dobble.pdf",
+		"ano": 2010,
+		"genero": 4
+	}},
+	{ "model": "setup.jogo", "pk": 11, "fields": {
+		"nome": "Carcassonne",
+		"descricao": "Monte mapas medievais com peças de terreno e controle regiões.",
+		"img": "/images/carcassonne.jpg",
+		"max_players": 5,
+		"duracao": "00:45:00",
+		"manual": "https://s3.aws.com/manuals/carcassonne.pdf",
+		"ano": 2000,
+		"genero": 9
+	}},
+	{ "model": "setup.jogo", "pk": 12, "fields": {
+		"nome": "Jogo da Vida",
+		"descricao": "Simulação da vida adulta: carreira, casamento, filhos e aposentadoria.",
+		"img": "/images/vida.jpg",
+		"max_players": 6,
+		"duracao": "01:20:00",
+		"manual": "https://s3.aws.com/manuals/vida.pdf",
+		"ano": 1980,
+		"genero": 3
+	}},
+
+	{ "model": "setup.extensao", "pk": 1, "fields": {
+		"nome": "Coup - A Inquisição",
+		"jogo_base": 1,
+		"descricao": "Expansão tensa com perseguição política e poderes secretos da inquisição.",
+		"img": "/images/Inquisicao.jpg",
+		"manual": null,
+		"ano": 2017
+	}},
+	{ "model": "setup.extensao", "pk": 2, "fields": {
+		"nome": "Coup - Burguês & Benfeitor",
+		"jogo_base": 1,
+		"descricao": "Novos personagens focados em influência econômica e apoio político.",
+		"img": "/images/Burgues_Benfeitor.jpg",
+		"manual": null,
+		"ano": 2018
+	}},
+	{ "model": "setup.extensao", "pk": 3, "fields": {
+		"nome": "Coup - Bufão & Burocrata",
+		"jogo_base": 1,
+		"descricao": "Cartas que adicionam caos e manipulação governamental ao jogo base.",
+		"img": "/images/Bufao_Burocrata.jpg",
+		"manual": null,
+		"ano": 2019
+	}},
+	{ "model": "setup.extensao", "pk": 4, "fields": {
+		"nome": "Catan - Navegadores",
+		"jogo_base": 3,
+		"descricao": "Expansão com ilhas marítimas, navios e exploração.",
+		"img": "/images/navegadores.jpg",
+		"manual": null,
+		"ano": 1997
+	}},
+	{ "model": "setup.extensao", "pk": 5, "fields": {
+		"nome": "WAR: Império Romano",
+		"jogo_base": 2,
+		"descricao": "Expansão temática baseada no período romano com novas regras e exércitos.",
+		"img": "/images/war_imperio_romano.jpg",
+		"manual": null,
+		"ano": 1985
+	}},
+	{ "model": "setup.extensao", "pk": 6, "fields": {
+		"nome": "Jenga Giant",
+		"jogo_base": 4,
+		"descricao": "Versão gigante com blocos maiores e regras para partidas em equipe.",
+		"img": "/images/jenga_giant.jpg",
+		"manual": null,
+		"ano": 2009
+	}},
+	{ "model": "setup.extensao", "pk": 7, "fields": {
+		"nome": "Zombicide: Toxic City Mall",
+		"jogo_base": 7,
+		"descricao": "Nova campanha com cenário de shopping center infestado de zumbis.",
+		"img": "/images/zombicide_toxic.jpg",
+		"manual": null,
+		"ano": 2013
+	}},
+
+	{ "model": "setup.noticia", "pk": 1, "fields": {
+		"jogo": 1,
+		"title": "Coup ganha expansão inédita: A Inquisição",
+		"body": "Prepare-se para novas estratégias e traições com a expansão \"A Inquisição\" que chega este ano."
+	}},
+	{ "model": "setup.noticia", "pk": 2, "fields": {
+		"jogo": 2,
+		"title": "WAR celebra 50 anos com nova edição limitada",
+		"body": "A clássica disputa por territórios volta em versão especial com miniaturas aprimoradas e regras expandidas."
+	}},
+	{ "model": "setup.noticia", "pk": 3, "fields": {
+		"jogo": 3,
+		"title": "Catan volta às prateleiras com expansão Navegadores",
+		"body": "Explore o mar e novas ilhas nesta expansão que promete renovar suas partidas."
+	}},
+	{ "model": "setup.noticia", "pk": 4, "fields": {
+		"jogo": 4,
+		"title": "Jenga Giant: diversão em tamanho família",
+		"body": "A nova versão gigante do Jenga chega com blocos maiores para mais emoção em grupo."
+	}},
+	{ "model": "setup.noticia", "pk": 5, "fields": {
+		"jogo": 7,
+		"title": "Zombicide lança campanha Toxic City Mall",
+		"body": "Novas missões e zumbis aterrorizantes chegam na expansão ambientada em um shopping abandonado."
+	}},
+	{ "model": "setup.noticia", "pk": 6, "fields": {
+		"jogo": 8,
+		"title": "Ticket to Ride: novidades no mapa da Europa",
+		"body": "Expansão adiciona túneis e estações para aumentar o desafio e a diversão."
+	}},
+	{ "model": "setup.noticia", "pk": 7, "fields": {
+		"jogo": 9,
+		"title": "Dixit: criatividade sem limites com novas cartas",
+		"body": "A popular expansão \"Revelations\" adiciona 84 cartas para ampliar as possibilidades do jogo."
+	}},
+	{ "model": "setup.noticia", "pk": 8, "fields": {
+		"jogo": 6,
+		"title": "Uno: torneio nacional com prêmios incríveis",
+		"body": "O clássico jogo de cartas terá campeonato aberto a jogadores de todo o país, com streaming ao vivo."
+	}},
+	{ "model": "setup.noticia", "pk": 9, "fields": {
+		"jogo": 11,
+		"title": "Carcassonne apresenta Feira e Mercado",
+		"body": "Novas peças e regras que prometem renovar as estratégias dos fãs do jogo de construção."
+	}},
+	{ "model": "setup.noticia", "pk": 10, "fields": {
+		"jogo": 12,
+		"title": "Jogo da Vida lança versão digital interativa",
+		"body": "A experiência clássica agora no seu smartphone, com recursos multiplayer e estatísticas detalhadas."
+	}}
+]
