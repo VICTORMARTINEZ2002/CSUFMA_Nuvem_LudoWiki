@@ -37,12 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework', # API
     'setup' # MYAPPS
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE':   'django.db.backends.postgresql',
         'NAME':     'ludowikidb',
-        'USER':     'ludowiki_user',
+        'USER':     'postgres',
         'PASSWORD': 'admin',
         'HOST':     'localhost',
         'PORT':     '5432',
@@ -126,3 +128,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+import sys
+print(">> CORS_ALLOWED_ORIGINS:", CORS_ALLOWED_ORIGINS, file=sys.stderr)
+print(">> CORS_ALLOW_CREDENTIALS:", CORS_ALLOW_CREDENTIALS, file=sys.stderr)
