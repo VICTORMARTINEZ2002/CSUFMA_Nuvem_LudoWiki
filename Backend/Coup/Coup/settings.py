@@ -80,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE':   'django.db.backends.postgresql',
         'NAME':     'ludowikidb',
-        'USER':     'postgres',
+        'USER':     'ludowiki_user',
         'PASSWORD': 'admin',
         'HOST':     'localhost',
         'PORT':     '5432',

@@ -1,0 +1,27 @@
+Linux:
+	| Ação                  | Comando                             |
+	| --------------------- | ----------------------------------- |
+	| **Iniciar**           | `sudo systemctl start postgresql`   |
+	| **Parar**             | `sudo systemctl stop postgresql`    |
+	| **Reiniciar**         | `sudo systemctl restart postgresql` |
+	| **Status**            | `sudo systemctl status postgresql`  |
+	| **Desativar ao boot** | `sudo systemctl disable postgresql` |
+	| **Ativar no boot**    | `sudo systemctl enable postgresql`  |
+
+
+	sudo -i -u postgres
+	psql
+
+	postgres=# ALTER USER postgres PASSWORD 'admin'
+
+windows:
+	Ação				Comando (cmd como admin)
+	Iniciar				net start postgresql-x64-17 (substitua 17 pela sua versão)
+	Parar				net stop postgresql-x64-17
+	Reiniciar			Não existe direto → use stop seguido de start
+	Status				Veja em Serviços (não tem comando direto no cmd)
+	Desativar ao boot	Use o comando abaixo com disable
+	Ativar no boot	    sc config postgresql-x64-17 start= auto
+	Desativar no boot	sc config postgresql-x64-17 start= disabled
+
+psql -U postgres
