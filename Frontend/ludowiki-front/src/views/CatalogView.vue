@@ -58,7 +58,6 @@ onMounted(async () => {
 .jogo-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  border-radius: 8px;
 }
 
 .card-link:hover .jogo-card {
@@ -68,7 +67,25 @@ onMounted(async () => {
 
 .card-image {
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
+  border: #3d3d3d 2px solid;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
+
+.p-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #3d3d3d;
+}
+
+.p-card-body {
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 </style>

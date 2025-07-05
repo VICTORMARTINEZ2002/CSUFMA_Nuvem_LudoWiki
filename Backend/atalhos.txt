@@ -1,0 +1,23 @@
+Linux:
+	psql
+	sudo -i -u postgres
+	postgres=# ALTER USER postgres PASSWORD 'admin'
+	| Ação                  | Comando                             |
+	| --------------------- | ----------------------------------- |
+	| **Iniciar**           | `sudo systemctl start postgresql`   |
+	| **Parar**             | `sudo systemctl stop postgresql`    |
+	| **Reiniciar**         | `sudo systemctl restart postgresql` |
+	| **Status**            | `sudo systemctl status postgresql`  |
+	| **Desativar ao boot** | `sudo systemctl disable postgresql` |
+	| **Ativar no boot**    | `sudo systemctl enable postgresql`  |
+
+Windows:
+	psql -U postgres
+	| Ação                  | Comando (cmd como admin)                   |
+	| --------------------- | ------------------------------------------ |
+	| **Iniciar**           | net start postgresql-x64-17                |
+	| **Parar**             | net stop postgresql-x64-17                 |
+	| **Reiniciar**         | Não existe direto                          |
+	| **Status**            | Veja em Serviços                           |
+	| **Desativar ao boot** | sc config postgresql-x64-17 start=auto     |
+	| **Ativar no boot**    | sc config postgresql-x64-17 start=disabled |

@@ -33,7 +33,7 @@
 
 <template>
   <main class="home-container">
-    <img src='@/assets/logo.jpg' alt="Logo Ludo Wiki" class="logo" />
+    <img src='@/assets/logo.jpg' alt="Logo LudoWiki" class="logo" />
     
     <div class="carousel-container">
       <h1 class="secondary-title"> Últimas notícias </h1>

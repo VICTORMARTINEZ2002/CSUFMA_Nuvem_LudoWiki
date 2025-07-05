@@ -12,7 +12,7 @@
 	{ "model": "setup.jogo", "pk": 1, "fields": {
 		"nome": "Coup",
 		"descricao": "Um jogo de blefe e dedução social, onde jogadores lutam pelo controle político através de influência e engano.",
-		"img": "/images/coup.jpg",
+		"img": "/src/assets/jogos_base/coup.jpg",
 		"max_players": 6,
 		"duracao": "00:15:00",
 		"manual": "https://s3.aws.com/manuals/coup.pdf",
@@ -22,7 +22,7 @@
 	{ "model": "setup.jogo", "pk": 2, "fields": {
 		"nome": "WAR",
 		"descricao": "Clássico jogo de conquista mundial onde o objetivo é dominar territórios usando estratégia militar.",
-		"img": "/images/war.jpg",
+		"img": "/src/assets/jogos_base/war.jpg",
 		"max_players": 6,
 		"duracao": "02:00:00",
 		"manual": "https://s3.aws.com/manuals/war.pdf",
@@ -32,7 +32,7 @@
 	{ "model": "setup.jogo", "pk": 3, "fields": {
 		"nome": "Catan",
 		"descricao": "Um jogo de colonização de ilhas com comércio e estratégia.",
-		"img": "/images/catan.jpg",
+		"img": "/src/assets/jogos_base/catan.jpg",
 		"max_players": 4,
 		"duracao": "01:00:00",
 		"manual": "https://s3.aws.com/manuals/catan.pdf",
@@ -42,7 +42,7 @@
 	{ "model": "setup.jogo", "pk": 4, "fields": {
 		"nome": "Jenga",
 		"descricao": "Remova blocos de uma torre sem deixá-la cair. Simples e tenso!",
-		"img": "/images/jenga.jpg",
+		"img": "/src/assets/jogos_base/jenga.png",
 		"max_players": 8,
 		"duracao": "00:20:00",
 		"manual": "https://s3.aws.com/manuals/jenga.pdf",
@@ -52,7 +52,7 @@
 	{ "model": "setup.jogo", "pk": 5, "fields": {
 		"nome": "Detetive",
 		"descricao": "Descubra quem cometeu o crime usando lógica e eliminação.",
-		"img": "/images/detetive.jpg",
+		"img": "/src/assets/jogos_base/detetive.jpg",
 		"max_players": 6,
 		"duracao": "01:00:00",
 		"manual": "https://s3.aws.com/manuals/detetive.pdf",
@@ -62,7 +62,7 @@
 	{ "model": "setup.jogo", "pk": 6, "fields": {
 		"nome": "Uno",
 		"descricao": "Clássico jogo de cartas onde o objetivo é se livrar de todas as cartas.",
-		"img": "/images/uno.jpg",
+		"img": "/src/assets/jogos_base/uno.jpg",
 		"max_players": 10,
 		"duracao": "00:20:00",
 		"manual": "https://s3.aws.com/manuals/uno.pdf",
@@ -72,7 +72,7 @@
 	{ "model": "setup.jogo", "pk": 7, "fields": {
 		"nome": "Zombicide",
 		"descricao": "Cooperativo com miniaturas onde jogadores enfrentam hordas de zumbis.",
-		"img": "/images/zombicide.jpg",
+		"img": "/src/assets/jogos_base/zombicide.jpg",
 		"max_players": 6,
 		"duracao": "01:30:00",
 		"manual": "https://s3.aws.com/manuals/zombicide.pdf",
@@ -82,7 +82,7 @@
 	{ "model": "setup.jogo", "pk": 8, "fields": {
 		"nome": "Ticket to Ride",
 		"descricao": "Construa rotas de trem conectando cidades em um mapa estratégico.",
-		"img": "/images/ticket.jpg",
+		"img": "/src/assets/jogos_base/ticket.jpg",
 		"max_players": 5,
 		"duracao": "01:00:00",
 		"manual": "https://s3.aws.com/manuals/ticket.pdf",
@@ -92,7 +92,7 @@
 	{ "model": "setup.jogo", "pk": 9, "fields": {
 		"nome": "Dixit",
 		"descricao": "Jogo de associação de imagens e criatividade com ilustrações oníricas.",
-		"img": "/images/dixit.jpg",
+		"img": "/src/assets/jogos_base/dixit.jpg",
 		"max_players": 6,
 		"duracao": "00:30:00",
 		"manual": "https://s3.aws.com/manuals/dixit.pdf",
@@ -102,7 +102,7 @@
 	{ "model": "setup.jogo", "pk": 10, "fields": {
 		"nome": "Dobble",
 		"descricao": "Jogo rápido de reconhecimento visual e reflexos com cartas redondas.",
-		"img": "/images/dobble.jpg",
+		"img": "/src/assets/jogos_base/dobble.jpg",
 		"max_players": 8,
 		"duracao": "00:15:00",
 		"manual": "https://s3.aws.com/manuals/dobble.pdf",
@@ -112,7 +112,7 @@
 	{ "model": "setup.jogo", "pk": 11, "fields": {
 		"nome": "Carcassonne",
 		"descricao": "Monte mapas medievais com peças de terreno e controle regiões.",
-		"img": "/images/carcassonne.jpg",
+		"img": "/src/assets/jogos_base/carcassonne.jpg",
 		"max_players": 5,
 		"duracao": "00:45:00",
 		"manual": "https://s3.aws.com/manuals/carcassonne.pdf",
@@ -122,7 +122,7 @@
 	{ "model": "setup.jogo", "pk": 12, "fields": {
 		"nome": "Jogo da Vida",
 		"descricao": "Simulação da vida adulta: carreira, casamento, filhos e aposentadoria.",
-		"img": "/images/vida.jpg",
+		"img": "/src/assets/jogos_base/vida.jpg",
 		"max_players": 6,
 		"duracao": "01:20:00",
 		"manual": "https://s3.aws.com/manuals/vida.pdf",
@@ -134,7 +134,7 @@
 		"nome": "Coup - A Inquisição",
 		"jogo_base": 1,
 		"descricao": "Expansão tensa com perseguição política e poderes secretos da inquisição.",
-		"img": "/images/Inquisicao.jpg",
+		"img": "/src/assets/expansoes/Inquisicao.jpg",
 		"manual": null,
 		"ano": 2017
 	}},
@@ -142,7 +142,7 @@
 		"nome": "Coup - Burguês & Benfeitor",
 		"jogo_base": 1,
 		"descricao": "Novos personagens focados em influência econômica e apoio político.",
-		"img": "/images/Burgues_Benfeitor.jpg",
+		"img": "/src/assets/expansoes/Burgues_Benfeitor.jpg",
 		"manual": null,
 		"ano": 2018
 	}},
@@ -150,7 +150,7 @@
 		"nome": "Coup - Bufão & Burocrata",
 		"jogo_base": 1,
 		"descricao": "Cartas que adicionam caos e manipulação governamental ao jogo base.",
-		"img": "/images/Bufao_Burocrata.jpg",
+		"img": "/src/assets/expansoes/Bufao_Burocrata.jpg",
 		"manual": null,
 		"ano": 2019
 	}},
@@ -158,7 +158,7 @@
 		"nome": "Catan - Navegadores",
 		"jogo_base": 3,
 		"descricao": "Expansão com ilhas marítimas, navios e exploração.",
-		"img": "/images/navegadores.jpg",
+		"img": "/src/assets/expansoes/navegadores.jpg",
 		"manual": null,
 		"ano": 1997
 	}},
@@ -166,7 +166,7 @@
 		"nome": "WAR: Império Romano",
 		"jogo_base": 2,
 		"descricao": "Expansão temática baseada no período romano com novas regras e exércitos.",
-		"img": "/images/war_imperio_romano.jpg",
+		"img": "/src/assets/expansoes/war_imperio_romano.jpg",
 		"manual": null,
 		"ano": 1985
 	}},
@@ -174,7 +174,7 @@
 		"nome": "Jenga Giant",
 		"jogo_base": 4,
 		"descricao": "Versão gigante com blocos maiores e regras para partidas em equipe.",
-		"img": "/images/jenga_giant.jpg",
+		"img": "/src/assets/expansoes/jenga_giant.jpg",
 		"manual": null,
 		"ano": 2009
 	}},
@@ -182,7 +182,7 @@
 		"nome": "Zombicide: Toxic City Mall",
 		"jogo_base": 7,
 		"descricao": "Nova campanha com cenário de shopping center infestado de zumbis.",
-		"img": "/images/zombicide_toxic.jpg",
+		"img": "/src/assets/expansoes/zombicide_toxic.jpg",
 		"manual": null,
 		"ano": 2013
 	}},

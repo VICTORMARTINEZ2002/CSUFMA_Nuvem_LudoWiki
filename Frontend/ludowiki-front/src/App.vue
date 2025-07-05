@@ -4,9 +4,9 @@ import Menubar from 'primevue/menubar'
 import { ref } from 'vue'
 
 const items = ref([
-	{label: 'Home',	icon: 'pi pi-home',	route: '/'	},
-	{label: 'Catalog',	icon: 'pi pi-list',	route: '/catalog'},
-	{label: 'About',	icon: 'pi pi-info-circle',	route: '/about'}
+    {label: 'Home',    icon: 'pi pi-home',        route: '/'},
+    {label: 'Catalog', icon: 'pi pi-list',        route: '/catalog'},
+    {label: 'About Us',   icon: 'pi pi-info-circle', route: '/about'}
 ])
 </script>
 
@@ -16,24 +16,18 @@ const items = ref([
 			<Menubar :model="items">
 				<!-- Logo à esquerda -->
 				<template #start>
-					<img src="@/assets/logo.jpg" alt="Logo" height="32" class="logo-img" />
+					<img src="@/assets/icon.png" alt="Logo" class="logo-img" />
+					<span style="font-size: 1.5rem;">LudoWiki</span>
 				</template>
-
 				<!-- Link router personalizado -->
-				<template #item="{ item, props, hasSubmenu }" #end>
-					<router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+				<template #item="{ item, props }">
+					<router-link v-slot="{ href, navigate }" :to="item.route" custom>
 						<a v-ripple :href="href" v-bind="props.action" @click="navigate">
-							<span :class="item.icon" style="margin-right: 0.5rem" />
+							<span style="font-size: 1.5rem;" :class="item.icon"></span>
 							<span>{{ item.label }}</span>
 						</a>
 					</router-link>
-					<a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
-						<span :class="item.icon" style="margin-right: 0.5rem" />
-						<span>{{ item.label }}</span>
-						<span v-if="hasSubmenu" class="pi pi-fw pi-angle-down" />
-					</a>
 				</template>
-
 			</Menubar>
 		</div>
 	</header>
@@ -42,5 +36,28 @@ const items = ref([
 </template>
 
 <style scoped>
-.logo-img{height:32px;}
+.logo-img{height:48px;}
+
+.p-menubar {
+	color: black;
+	border-radius: 0;
+	font-size: 1.5rem;
+	background: #34d399;
+}
+.p-menubar .p-menuitem {
+	border-radius: 0;
+}
+
+.p-menubar-item-link {
+	color: black;
+
+	&:hover {
+		background-color: #34d399;
+		border-radius: 1.15rem;
+	}
+
+	&:not(:hover) {
+		background-color: #34d399;
+	}
+}
 </style>

@@ -7,15 +7,12 @@ import AccordionPanel from 'primevue/accordionpanel';
 import AccordionHeader from 'primevue/accordionheader';
 import AccordionContent from 'primevue/accordioncontent';
 
-
-console.log('hello');
-
 const route = useRoute()
 const rawId = route.params.id
 const id = Array.isArray(rawId) ? parseInt(rawId[0]) : parseInt(rawId)
 
-const jogo = ref<any>({})
-const extensoes = ref<any[]>([])
+const jogo = ref()
+const extensoes = ref()
 
 onMounted(async () => {
     try {
@@ -57,40 +54,44 @@ const formatarDuracao = (duracao: string) => {
                 <p class="descricao">{{ jogo.descricao }}</p>
 
                 <table class="detalhes-tabela">
-                    <tr>
-                        <th>Ano de Lançamento:</th>
-                        <td>{{ jogo.ano }}</td>
-                    </tr>
-                    <tr>
-                        <th>Duração Média:</th>
-                        <td>{{ formatarDuracao(jogo.duracao) }}</td>
-                    </tr>
-                    <tr>
-                        <th>Máx. Jogadores:</th>
-                        <td>{{ jogo.max_players }}</td>
-                    </tr>
-                    <tr>
-                        <th>Gênero:</th>
-                        <td>{{ jogo.genero.nome }}</td>
-                    </tr>
-                    <tr>
-                        <th>Manual:</th>
-                        <td><a :href="jogo.manual" target="_blank" class="manual-link">Ver manual (PDF)</a></td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <th>Ano de Lançamento:</th>
+                            <td>{{ jogo.ano }}</td>
+                        </tr>
+                        <tr>
+                            <th>Duração Média:</th>
+                            <td>{{ formatarDuracao(jogo.duracao) }}</td>
+                        </tr>
+                        <tr>
+                            <th>Máx. Jogadores:</th>
+                            <td>{{ jogo.max_players }}</td>
+                        </tr>
+                        <tr>
+                            <th>Gênero:</th>
+                            <td>{{ jogo.genero.nome }}</td>
+                        </tr>
+                        <tr>
+                            <th>Manual:</th>
+                            <td><a :href="jogo.manual" target="_blank" class="manual-link">Ver manual (PDF)</a></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
 
-        <h2 class="extensao-title">Extensões</h2>
-        <div class="accordion card">
-            <Accordion v-for="ext in extensoes" :value="ext.id">
-                <AccordionPanel value="0">
-                    <AccordionHeader>{{ext.nome}} - {{ext.ano}}</AccordionHeader>
-                    <AccordionContent>
-                            {{ext.descricao}}
-                    </AccordionContent>
-                </AccordionPanel>
-            </Accordion>
+        <div v-if="extensoes.length">
+            <h2 class="extensao-title">Extensões</h2>
+            <div class="accordion">
+                <Accordion v-for="ext in extensoes" :value="ext.id">
+                    <AccordionPanel value="0">
+                        <AccordionHeader>{{ext.nome}} - {{ext.ano}}</AccordionHeader>
+                        <AccordionContent>
+                                {{ext.descricao}}
+                        </AccordionContent>
+                    </AccordionPanel>
+                </Accordion>
+            </div>
         </div>
     </div>
     <div v-else class="carregando">Carregando jogo...</div>
@@ -99,21 +100,17 @@ const formatarDuracao = (duracao: string) => {
 
 <style scoped>
 .jogo-container {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 2rem;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    color: black;
+    padding: 1rem 2rem;
 }
 
 .jogo-title {
+    margin: 0px;
     font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
     border-bottom: 2px solid #ccc;
     padding-bottom: 0.5rem;
-    color: #333;
 }
 
 .jogo-content {
@@ -124,8 +121,8 @@ const formatarDuracao = (duracao: string) => {
 }
 
 .jogo-image {
-    max-width: 400px;
     width: 100%;
+    max-width: 500px;
     border-radius: 6px;
     object-fit: cover;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
@@ -137,28 +134,25 @@ const formatarDuracao = (duracao: string) => {
 }
 
 .descricao {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     margin-bottom: 1.5rem;
-    color: #333;
 }
 
 .detalhes-tabela {
     width: 100%;
+    font-size: 1.4rem;
     border-collapse: collapse;
-    color: #333;
 }
 
 .detalhes-tabela th {
-    text-align: left;
+    width: 30%;
     padding: 0.5rem;
-    width: 180px;
+    text-align: left;
     vertical-align: top;
-    background-color: #f9f9f9;
 }
 
 .detalhes-tabela td {
     padding: 0.5rem;
-    background-color: #fcfcfc;
 }
 
 .manual-link {
@@ -181,10 +175,11 @@ const formatarDuracao = (duracao: string) => {
     margin-bottom: 0.5rem;
     border-bottom: 2px solid #ccc;
     padding-bottom: 0.5rem;
-    color: #333;
 }
 
-.accordion{
-    padding-top: 3rem;
+.p-accordionpanel{
+    margin-bottom: 1rem;
+    background-color: #3d3d3d;
 }
+
 </style>

@@ -1,9 +1,9 @@
 <template>
   <div class="about-container">
-    <h1 class="about-title">Sobre o Ludo Wiki</h1>
+    <h1 class="about-title">Sobre o LudoWiki</h1>
 
     <p class="about-description">
-      O <strong>Ludo Wiki</strong> é um catálogo digital dedicado a jogos de mesa em geral. Nosso objetivo é fornecer uma fonte clara, organizada e acessível para você explorar jogos incríveis, entender suas mecânicas e descobrir expansões que enriquecem ainda mais a experiência.
+      O <strong>LudoWiki</strong> é um catálogo digital dedicado a jogos de mesa em geral. Nosso objetivo é fornecer uma fonte clara, organizada e acessível para você explorar jogos incríveis, entender suas mecânicas e descobrir expansões que enriquecem ainda mais a experiência.
     </p>
 
     <p>
@@ -19,7 +19,7 @@
     </ul>
 
     <p class="about-footer">
-      Este projeto é feito com 💙 por entusiastas de jogos de mesa. Esperamos que o Ludo Wiki ajude você a descobrir novos jogos e a aproveitar ainda mais os que já ama!
+      Este projeto é feito com 💙 por entusiastas de jogos de mesa. Esperamos que o LudoWiki ajude você a descobrir novos jogos e a aproveitar ainda mais os que já ama!
     </p>
   </div>
 </template>
@@ -29,22 +29,15 @@
 
 <style scoped>
 .about-container {
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 8px;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  padding: 1rem 2rem;
   line-height: 1.6;
-  color: #333;
+  color: black;
 }
 
 .about-title {
+  margin: 0px;
   font-size: 2.4rem;
-  margin-bottom: 1rem;
   border-bottom: 2px solid #ccc;
-  padding-bottom: 0.5rem;
 }
 
 .about-subtitle {
