@@ -1,4 +1,5 @@
 Linux:
+	dar permissao script -> chmod +x nome_do_script.sh
 	psql
 	sudo -i -u postgres
 	postgres=# ALTER USER postgres PASSWORD 'admin'
