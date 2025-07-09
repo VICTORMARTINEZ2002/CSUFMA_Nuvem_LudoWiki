@@ -4,33 +4,61 @@ import { useRoute } from 'vue-router'
 import axios from '@/plugins/axios'
 import ExpansaoCard from '@/components/ExpansaoCard.vue'
 
+interface Extensao {
+    id: number
+    nome: string
+    descricao: string
+    img: string
+    manual: string | null
+    ano: number
+    jogo_base: number
+}
+
+interface Jogo {
+    id: number
+    nome: string
+    descricao: string
+    img: string
+    manual: string | null
+    ano: number
+    duracao: string
+    max_players: number
+    genero?: { nome: string }
+}
+
 const route = useRoute()
 const rawId = route.params.id
-const id = Array.isArray(rawId) ? parseInt(rawId[0]) : parseInt(rawId)
+const id = Array.isArray(rawId) ? parseInt(rawId[0], 10) : parseInt(rawId, 10)
 
-const jogo = ref()
-const extensoes = ref([])
+const jogo = ref<Jogo>()
+const extensoes = ref<Extensao[]>([])
 
-const formatarDuracao = (duracao:string) => {
-    const[h,m]=duracao.split(':')
-    const horas=parseInt(h)
-    const minutos=parseInt(m)
-    if(horas>0)return `${horas}h ${minutos}min`
+const formatarDuracao = (duracao: string) => {
+    if(!duracao || !duracao.includes(':')) return 'N/D'
+    const [h, m] = duracao.split(':')
+    const horas = parseInt(h, 10)
+    const minutos = parseInt(m, 10)
+    if(horas > 0) return `${horas}h ${minutos}min`
     return `${minutos} minutos`
 }
 
 onMounted(async () => {
     try {
-        const jogoResponse = await axios.get(`/jogos/${id}`)
+        const [jogoResponse, generoResponse, extensoesResponse] = await Promise.all([
+            axios.get(`/jogos/${id}`),
+            axios.get(`/generos/${id}`),
+            axios.get('/extensoes/')
+        ])
+
         jogo.value = jogoResponse.data
+        if(jogo.value) jogo.value.genero = generoResponse.data
 
-        const generoResponse = await axios.get(`/generos/${id}`)
-        jogo.value.genero = generoResponse.data
-
-        const extensaoResponse = await axios.get(`/extensoes/`)
-        extensoes.value = extensaoResponse.data.filter((ext:any)=>ext.jogo_base===id)
-        
-    }catch(err){console.log('Erro ao buscar jogo ou gênero:', err)}
+        extensoes.value = extensoesResponse.data.filter(
+            (ext: Extensao) => ext.jogo_base === id
+        )
+    } catch(err) {
+        console.error('Erro ao buscar dados do jogo:', err)
+    }
 })
 </script>
 
@@ -47,10 +75,14 @@ onMounted(async () => {
                         <tr><th>Ano de Lançamento:</th><td>{{jogo.ano}}</td></tr>
                         <tr><th>Duração Média:</th><td>{{formatarDuracao(jogo.duracao)}}</td></tr>
                         <tr><th>Máx. Jogadores:</th><td>{{jogo.max_players}}</td></tr>
-                        <tr><th>Gênero:</th><td>{{jogo.genero.nome}}</td></tr>
-                        <tr><th>Manual:</th>
+                        <tr><th>Gênero:</th><td>{{jogo.genero?.nome || 'Indefinido'}}</td></tr>
+                        <tr>
+                            <th>Manual:</th>
                             <td>
-                                <a :href="jogo.manual" target="_blank" class="manual-link">Ver manual (PDF)</a>
+                                <a v-if="jogo.manual" :href="jogo.manual" target="_blank" class="manual-link">
+                                    Ver manual (PDF)
+                                </a>
+                                <span v-else>Indisponível</span>
                             </td>
                         </tr>
                     </tbody>
@@ -66,82 +98,81 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-    .jogo-container {
-        color: black;
-        padding: 1rem 2rem;
-    }
+.jogo-container {
+    color: black;
+    padding: 1rem 2rem;
+}
 
-    .jogo-title {
-        margin: 0px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        border-bottom: 2px solid #ccc;
-        padding-bottom: 0.5rem;
-    }
+.jogo-title {
+    margin: 0px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem;
+}
 
-    .jogo-content {
-        display: flex;
-        flex-direction: row;
-        gap: 2rem;
-        flex-wrap: wrap;
-    }
+.jogo-content {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
 
-    .jogo-image {
-        width: 100%;
-        max-width: 500px;
-        border-radius: 6px;
-        object-fit: cover;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.2);
-    }
+.jogo-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
 
-    .jogo-details {
-        flex: 1;
-        min-width: 280px;
-    }
+.jogo-details {
+    flex: 1;
+    min-width: 280px;
+}
 
-    .descricao {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
+.descricao {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
 
-    .detalhes-tabela {
-        width: 100%;
-        font-size: 1.4rem;
-        border-collapse: collapse;
-    }
+.detalhes-tabela {
+    width: 100%;
+    font-size: 1.4rem;
+    border-collapse: collapse;
+}
 
-    .detalhes-tabela th {
-        width: 30%;
-        padding: 0.5rem;
-        text-align: left;
-        vertical-align: top;
-    }
+.detalhes-tabela th {
+    width: 30%;
+    padding: 0.5rem;
+    text-align: left;
+    vertical-align: top;
+}
 
-    .detalhes-tabela td {
-        padding: 0.5rem;
-    }
+.detalhes-tabela td {
+    padding: 0.5rem;
+}
 
-    .manual-link {
-        color: #0077cc;
-        text-decoration: underline;
-    }
+.manual-link {
+    color: #0077cc;
+    text-decoration: underline;
+}
 
-    .manual-link:hover {
-        color: #005fa3;
-    }
+.manual-link:hover {
+    color: #005fa3;
+}
 
-    .carregando {
-        text-align: center;
-        font-size: 1.2rem;
-        padding: 2rem;
-    }
+.carregando {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 2rem;
+}
 
-    .extensao-title {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-        border-bottom: 2px solid #ccc;
-        padding-bottom: 0.5rem;
-    }
-
+.extensao-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem;
+}
 </style>
